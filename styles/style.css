@@ -4,6 +4,7 @@
     margin: 0px;
     padding: 0px;
     font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
 }
 
 html, body{
@@ -19,6 +20,7 @@ body{
 main{
     position: relative;
     height: 100vh;
+    width: 100%;
 }
 
 section#telefone{
@@ -26,34 +28,59 @@ section#telefone{
     top: 50%;
     left: 50%;
     transform:translate(-50%, -50%) ;
-    height: 627px;
-    width: 311px;
+    width: min(320px, 85vw);
+    aspect-ratio: 311 / 627;
     background: url(../imagens/frame-iphone.png) no-repeat;
+    background-size: 100% 100%;
 }
 
 iframe#tela{
     position: relative;
-    top: 80px;
-    left: 22px ;
-    width: 269px;
-    height: 471px;
+    top: 12.8%;
+    left: 7.1% ;
+    width: 86.5%;
+    height: 75%;
+    border: none;
 }
 
 section#redes-sociais{
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
     text-align: right;
 }
 section#redes-sociais img{
-    width: 50px;
-    height: 50px;
-    margin: 10px;
+    width: 55px;
+    height: 55px;
+    margin: 8px;
     border-radius: 50%;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.400);
-    box-sizing: border-box;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    transition: transform .4s, border .4s;
 }
 
 section#redes-sociais img:hover{
-    border: 2px solid rgba(255, 255, 255, 0.640);
+    border: 2px solid rgba(255, 255, 255, 0.7);
     transform: translate(-3px, -3px);
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.600);
-    transition: transform .5s, border 1s;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* -------- RESPONSIVIDADE -------- */
+
+/* TELAS MENORES (celulares pequenos) */
+@media (max-width: 400px){
+    section#telefone{
+        width: 90vw;
+    }
+
+    section#redes-sociais img{
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* TELAS GRANDES (monitores grandes) */
+@media (min-width: 1200px){
+    section#telefone{
+        width: 350px;
+    }
 }
